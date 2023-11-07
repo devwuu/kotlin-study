@@ -1,6 +1,7 @@
 fun main(){
-    nullCheck();
-    nullCheck2("hello")
+//    nullCheck();
+//    nullCheck2("hello")
+    notNull("hi")
 }
 
 // Nullable VS NonNull
@@ -34,9 +35,22 @@ fun nullCheck(){
     var uppercaseName6 = name6?: "Noname";
     // null일 경우 지정해준 default 값을 반환한다.
     println(uppercaseName6)
-
 }
 
 fun nullCheck2(name: String?) {
     println(name ?: "name is null")
+}
+
+fun notNull(str: String?) {
+    // !! : nullable 타입이지만 null이 아님을 보증한다
+//    val nullableStr: String = str // nullable 값을 not null타입에 할당할 수 없다
+    val notNullStr: String = str !!; // null이 아님을 개발자가 보증합니다
+    // 근데 정말 null이 절대 아니라고 보증할 수 있나?
+    // 잘못하면 NPE 를 일으킬 수 있다. 따라서 ?. 나 ?:  연산자 사용을 추천합니다
+
+    val email1 : String? = "test@gmail.com"
+    val email2 : String? = null
+    email1?.let { println("my email is ${it}") } // null safe 하게 람다식(let 내부)을 실행시켜준다
+    email2?.let { s -> println("my email is ${s}") }
+
 }
