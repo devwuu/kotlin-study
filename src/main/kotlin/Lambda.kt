@@ -34,6 +34,23 @@ val calculateGrade: (Int) -> String = {
 }
 
 // 람다를 표현하는 여러가지 방법
+fun invokeLambda(lambda: (Double) -> Boolean) : Boolean {
+    // double을 받아서 boolean을 return하는 람다식을 파라미터로 받아서
+    // 해당 람다식을 실행한다
+    // 람다식에 5.2343를 넣어 실행한 값을 return 한다
+    return lambda(5.2343)
+}
+
+fun invokeLambdaWithParam(lambda: (Int) -> Boolean, num: Int): Boolean {
+    return lambda(num)
+}
+
+fun invokeLambdaWithParam2(num: Int, lambda: (Int) -> Boolean): Boolean {
+    return lambda(num)
+}
+
+val lambda : (Double) -> Boolean = { it == 1.234 }
+val lambda2 : (Int) -> Boolean = { it == 3 }
 
 
 fun main(){
@@ -51,6 +68,39 @@ fun main(){
 
     val grade = calculateGrade(61)
     println(grade)
+
+    // 람다를 표현하는 여러가지 방법
+    // 이미 정의해둔 람다식을 파라미터로 넣어줄 수도 있다
+    val isFalse = invokeLambda(lambda)
+    println(isFalse)
+
+    // 파라미터로 넣어질 람다를 바로 구현해서 적용할 수 있다
+    val isTrue = invokeLambda { it == 5.2343 }
+    println( invokeLambda(){it == 5.2343} )
+    println( invokeLambda ({it == 5.2343}) )
+    println(isTrue)
+    // 똑같은 식
+    // function의 유일한 파라미터가 람다식일 경우 소괄호 생략 가능
+    // 람다식이 마지막 파라미터일 경우 람다식을 소괄호를 밖으로 빼서 작성할 수도 있다.
+
+    println("------")
+
+    val isFalse2 = invokeLambdaWithParam(lambda2, 2)
+    println(" isFalse2 ${isFalse2}")
+    val isTrue2 = invokeLambdaWithParam({ it == 2 }, 2)
+//    invokeLambdaWithParam(2){it == 2} : 컴파일 에러
+    println(" isTrue2 ${isTrue2}")
+
+    val isFalse3 = invokeLambdaWithParam2(2, lambda2)
+    println(" isFalse3 ${isFalse3}")
+    val isTrue3 = invokeLambdaWithParam2(2, { it == 2 })
+    println(" isTrue3 ${isTrue3}")
+    val isTrue4 = invokeLambdaWithParam2(2) { it == 2 }
+    println(" isTrue4 ${isTrue4}")
+
+    // 위와 같은 방법으로 익명 내부 함수 구현이 가능합니다.
+
+
 
 }
 
