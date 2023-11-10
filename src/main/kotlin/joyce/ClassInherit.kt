@@ -1,3 +1,5 @@
+package joyce
+
 open class Person{
     fun eating(){
         println("냠냠")

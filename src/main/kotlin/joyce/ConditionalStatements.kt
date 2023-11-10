@@ -1,3 +1,5 @@
+package joyce
+
 fun main(){
 //    checkNumber(0)
 //    checkNumber(10)

@@ -1,3 +1,5 @@
+package joyce
+
 class Human constructor(age: Int){ // 주생성자 선언
     val name = "james"
     val age = age;

@@ -1,4 +1,4 @@
-
+package joyce
 // 데이터 클래스
 // DTO로 사용할 수 있다
 // ToString,  Hashcode, equals, copy 메서드를 개발자가 직접 만들지 않아도 자동으로 만들어준다
