@@ -47,4 +47,7 @@ fun readFile(path: String){
     BufferedReader(FileReader(path)).use {
         println(it.readLine())
     }
+    // {}는 람다식
+    // 사실 () 안에 들어갔어야 하는 게 맞지만 마지막 파라미터라서 밖에 나왔다
+    // 그리고 BufferedReader가 가지고있는 use 라는 확장 함수이다
 }
